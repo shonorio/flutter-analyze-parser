@@ -8,7 +8,7 @@ class FlutterAnalyzeParser
       return [] if filtered_input.detect { |element| element.include? "No issues found!" }
 
       filtered_input
-        .select { |line| line.start_with? "info" }
+        .select { |line| line.start_with?("info", "warning", "error") }
         .map(&method(:parse_line))
     end
 
